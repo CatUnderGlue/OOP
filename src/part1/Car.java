@@ -8,6 +8,11 @@ public class Car {
     int year;
     String country;
 
+    /*
+     * ==============================
+     * Task 3
+     * ==============================
+     */
     public Car(String brand, String model, int year, String country, String color, double engineVolume) {
         if (brand == null || brand.strip().equals("")) {
             this.brand = "default";
