@@ -10,11 +10,22 @@ public class Car {
             this.keylessAccess = keylessAccess;
         }
 
+        public Key(){
+            this(false, false);
+        }
+
         @Override
         public String toString() {
             return "Keyless access: " + keylessAccess + ". Remote engie start: " + remoteEngineStart;
         }
 
+        public boolean isRemoteEngineStart() {
+            return remoteEngineStart;
+        }
+
+        public boolean isKeylessAccess() {
+            return keylessAccess;
+        }
     }
     private static final String[] CAR_BODY_TYPES =
             {"Micro", "Sedan", "Cuv", "Suv", "Hatchback", "Minivan", "Cabriolet",
@@ -39,7 +50,7 @@ public class Car {
      * ==============================
      */
     public Car(String brand, String model, int year, String country, String color, double engineVolume,
-               String gearbox, String bodyType, String registrationNumber, int numberOfSeats, boolean winterTires) {
+               String gearbox, String bodyType, String registrationNumber, int numberOfSeats, boolean winterTires, Key key) {
         if (brand == null || brand.isEmpty() || brand.isBlank()) {
             this.brand = "default";
         } else {
@@ -105,16 +116,22 @@ public class Car {
         }
 
         this.winterTires = winterTires;
+
+        if (key == null){
+            this.key = new Key();
+        } else {
+            this.key = key;
+        }
     }
 
     public Car(String brand, String model, int year, String country, String color, double engineVolume, String registrationNumber){
         this(brand, model, year, country, color, engineVolume, "Manual", "Sedan",
-                registrationNumber, 4, false);
+                registrationNumber, 4, false, null);
     }
 
     public Car(String brand, String model, int year, String color, String registrationNumber){
         this(brand, model, year, "Default", color, 1.5, "Manual", "Sedan",
-                registrationNumber, 4, false);
+                registrationNumber, 4, false, null);
     }
 
 
@@ -249,7 +266,7 @@ public class Car {
                 "Body Type: " + bodyType + "\n" +
                 "Registration Number: " + registrationNumber + "\n" +
                 "Number of seats: " + numberOfSeats + "\n" +
-                "Winter Tires: " + winterTires + "\n" +
+                "Tires: " + (isWinterTires() ? "winter" : "summer") + "\n" +
                 "Key: " + key + "\n";
     }
 }
