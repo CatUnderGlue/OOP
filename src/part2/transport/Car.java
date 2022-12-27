@@ -61,7 +61,7 @@ public class Car {
         if (country == null || country.isEmpty() || country.isBlank()) {
             this.country = "default";
         } else {
-            this.country = model;
+            this.country = country;
         }
 
         if (color == null || color.isEmpty() || color.isBlank()){
@@ -105,6 +105,16 @@ public class Car {
         }
 
         this.winterTires = winterTires;
+    }
+
+    public Car(String brand, String model, int year, String country, String color, double engineVolume, String registrationNumber){
+        this(brand, model, year, country, color, engineVolume, "Manual", "Sedan",
+                registrationNumber, 4, false);
+    }
+
+    public Car(String brand, String model, int year, String color, String registrationNumber){
+        this(brand, model, year, "Default", color, 1.5, "Manual", "Sedan",
+                registrationNumber, 4, false);
     }
 
 
