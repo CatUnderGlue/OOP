@@ -43,12 +43,6 @@ public class Car {
     private boolean winterTires;
     private Key key;
 
-
-    /*
-     * ==============================
-     * Task 3
-     * ==============================
-     */
     public Car(String brand, String model, int year, String country, String color, double engineVolume,
                String gearbox, String bodyType, String registrationNumber, int numberOfSeats, boolean winterTires, Key key) {
         if (brand == null || brand.isEmpty() || brand.isBlank()) {
