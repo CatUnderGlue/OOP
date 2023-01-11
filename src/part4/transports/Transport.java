@@ -5,16 +5,17 @@ import part4.drivers.Driver;
 
 import java.util.Objects;
 
-public abstract class Transport implements Competing {
-    private Driver driver;
+public abstract class Transport<T extends Driver> implements Competing {
+    private T driver;
     private String brand;
     private String model;
     private double engineVolume;
 
-    public Transport(String brand, String model, double engineVolume) {
+    public Transport(String brand, String model, double engineVolume, T driver) {
         setBrand(brand);
         setModel(model);
         setEngineVolume(engineVolume);
+        setDriver(driver);
     }
 
     public void startMoving() {
@@ -26,14 +27,10 @@ public abstract class Transport implements Competing {
     }
 
     @Override
-    public double bestLapTime() {
-        return LAP_DISTANCE / maxSpeed();
-    }
+    public abstract double bestLapTime();
 
     @Override
-    public double maxSpeed() {
-        return engineVolume * 10; // Допустим объём двигателя будет показателем скорости :D
-    }
+    public abstract double maxSpeed();
 
     public String getBrand() {
         return brand;
@@ -71,8 +68,20 @@ public abstract class Transport implements Competing {
         }
     }
 
-    public Driver getDriver() {
+    public T getDriver() {
         return driver;
+    }
+
+    public void setDriver(T driver) {
+        if (!driver.isBusy()) {
+            driver.setBusy(true);
+            if (this.driver != null) {
+                this.driver.setBusy(false);
+            }
+            this.driver = driver;
+        } else {
+            throw new IllegalArgumentException("Данный водитель уже управляет другим авто");
+        }
     }
 
     @Override

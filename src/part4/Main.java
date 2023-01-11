@@ -23,18 +23,18 @@ public class Main {
         DDriver dDriver3 = new DDriver("FIO11", true, 1.0);
         DDriver dDriver4 = new DDriver("FIO12", true, 1.0);
 
-        Car<BDriver> car1 = new Car<>("Brand1", "Model1", 10.5, bDriver1);
-        Car<BDriver> car2 = new Car<>("Brand2", "Model2", 15.0, bDriver2);
-        Car<BDriver> car3 = new Car<>("Brand3", "Model3", 20.3, bDriver3);
-        Car<BDriver> car4 = new Car<>("Brand4", "Model4", 25.0, bDriver4);
-        Truck<CDriver> truck1 = new Truck<>("Brand1", "Model1", 7.0, cDriver1);
-        Truck<CDriver> truck2 = new Truck<>("Brand2", "Model2", 9.5, cDriver2);
-        Truck<CDriver> truck3 = new Truck<>("Brand3", "Model3", 12.0, cDriver3);
-        Truck<CDriver> truck4 = new Truck<>("Brand4", "Model4", 15.5, cDriver4);
-        Bus<DDriver> bus1 = new Bus<>("Brand1", "Model1", 4.0, dDriver1);
-        Bus<DDriver> bus2 = new Bus<>("Brand2", "Model2", 8.5, dDriver2);
-        Bus<DDriver> bus3 = new Bus<>("Brand3", "Model3", 3.0, dDriver3);
-        Bus<DDriver> bus4 = new Bus<>("Brand4", "Model4", 7.7, dDriver4);
+        Car car1 = new Car("Brand1", "Model1", 10.5, bDriver1);
+        Car car2 = new Car("Brand2", "Model2", 15.0, bDriver2);
+        Car car3 = new Car("Brand3", "Model3", 20.3, bDriver3);
+        Car car4 = new Car("Brand4", "Model4", 25.0, bDriver4);
+        Truck truck1 = new Truck("Brand1", "Model1", 7.0, cDriver1);
+        Truck truck2 = new Truck("Brand2", "Model2", 9.5, cDriver2);
+        Truck truck3 = new Truck("Brand3", "Model3", 12.0, cDriver3);
+        Truck truck4 = new Truck("Brand4", "Model4", 15.5, cDriver4);
+        Bus bus1 = new Bus("Brand1", "Model1", 4.0, dDriver1);
+        Bus bus2 = new Bus("Brand2", "Model2", 8.5, dDriver2);
+        Bus bus3 = new Bus("Brand3", "Model3", 3.0, dDriver3);
+        Bus bus4 = new Bus("Brand4", "Model4", 7.7, dDriver4);
 
         car1.pitStop();
 
