@@ -14,17 +14,11 @@ public abstract class Driver {
         this.driveExperience = driveExperience;
     }
 
-    public void startMoving() {
-        System.out.println("Начинает движение");
-    }
+    public abstract void startMoving();
 
-    public void stopMoving() {
-        System.out.println("Заканчивает движение");
-    }
+    public abstract void stopMoving();
 
-    public void refuelCar() {
-        System.out.println("Заправляет авто");
-    }
+    public abstract void refuelCar();
 
     public String getFullname() {
         return fullname;
