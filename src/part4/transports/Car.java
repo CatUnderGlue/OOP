@@ -9,6 +9,16 @@ public class Car extends Transport<BDriver> {
     }
 
     @Override
+    public void startMoving() {
+        System.out.printf("Автомобиль марки %s начал движение\n", getBrand());
+    }
+
+    @Override
+    public void stopMoving() {
+        System.out.printf("Автомобиль марки %s закончил движение\n", getBrand());
+    }
+
+    @Override
     public void pitStop() {
         System.out.printf("Водитель: %s из автомобиля %s %s остановился на пит-стоп\n", getDriver().getFullname(), getBrand(), getModel());
     }

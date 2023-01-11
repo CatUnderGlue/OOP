@@ -18,19 +18,9 @@ public abstract class Transport<T extends Driver> implements Competing {
         setDriver(driver);
     }
 
-    public void startMoving() {
-        System.out.println("Начинает движение");
-    }
+    public abstract void startMoving();
 
-    public void stopMoving() {
-        System.out.println("Заканчивает движение");
-    }
-
-    @Override
-    public abstract double bestLapTime();
-
-    @Override
-    public abstract double maxSpeed();
+    public abstract void stopMoving();
 
     public String getBrand() {
         return brand;
@@ -95,7 +85,7 @@ public abstract class Transport<T extends Driver> implements Competing {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Transport transport = (Transport) o;
+        Transport<?> transport = (Transport<?>) o;
         return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model);
     }
 

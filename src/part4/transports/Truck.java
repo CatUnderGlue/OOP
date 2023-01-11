@@ -9,8 +9,18 @@ public class Truck extends Transport<CDriver> {
     }
 
     @Override
+    public void startMoving() {
+        System.out.printf("Грузовик марки %s начал движение\n", getBrand());
+    }
+
+    @Override
+    public void stopMoving() {
+        System.out.printf("Грузовик марки %s закончил движение\n", getBrand());
+    }
+
+    @Override
     public void pitStop() {
-        System.out.printf("Водитель: %s из автомобиля %s %s остановился на пит-стоп\n", getDriver().getFullname(), getBrand(), getModel());
+        System.out.printf("Водитель: %s из грузовика %s %s остановился на пит-стоп\n", getDriver().getFullname(), getBrand(), getModel());
     }
 
     @Override
