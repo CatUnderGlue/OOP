@@ -38,14 +38,14 @@ public class Main {
 
         car1.pitStop();
 
-        Transport[] transports = {car1, car2, car3, car4, truck1, truck2, truck3, truck4, bus1, bus2, bus3, bus4};
+        Transport<?>[] transports = {car1, car2, car3, car4, truck1, truck2, truck3, truck4, bus1, bus2, bus3, bus4};
         //printAllTransportInfo(transports);
         printCheckinInformation(transports);
 
     }
 
-    public static void printAllTransportInfo(Transport... transports) {
-        for (Transport transport : transports) {
+    public static void printAllTransportInfo(Transport<?>... transports) {
+        for (Transport<?> transport : transports) {
             System.out.printf("Для %s %s %s\n", transport.getClass().getSimpleName(), transport.getBrand(),
                     transport.getModel());
             System.out.printf("Максимальная скорость: %.2f км/ч\nЛучший круг: %.2f сек\n\n", transport.maxSpeed(),
@@ -53,8 +53,8 @@ public class Main {
         }
     }
 
-    public static void printCheckinInformation(Transport... transports) {
-        for (Transport transport : transports) {
+    private static void printCheckinInformation(Transport<?>... transports) {
+        for (Transport<?> transport : transports) {
             System.out.printf("Водитель: %s управляет автомобилем: %s %s %s и будет участвовать в заезде\n",
                     transport.getDriver().getFullname(), transport.getClass().getSimpleName(), transport.getBrand(),
                     transport.getModel());
