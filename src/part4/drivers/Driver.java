@@ -1,9 +1,11 @@
 package part4.drivers;
 
+import part4.transports.Transport;
+
 import java.util.Objects;
 
-public abstract class Driver {
-    private boolean busy = false;
+public abstract class Driver<T extends Transport> {
+    private T car;
     private final String fullname;
     private boolean driveLicense;
     private double driveExperience;
@@ -40,19 +42,19 @@ public abstract class Driver {
         this.driveExperience = driveExperience;
     }
 
-    public boolean isBusy() {
-        return busy;
+    public T getCar() {
+        return car;
     }
 
-    public void setBusy(boolean busy) {
-        this.busy = busy;
+    public void setCar(T car) {
+        this.car = car;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Driver driver = (Driver) o;
+        Driver<?> driver = (Driver<?>) o;
         return driveLicense == driver.driveLicense && Double.compare(driver.driveExperience, driveExperience) == 0 && Objects.equals(fullname, driver.fullname);
     }
 

@@ -1,6 +1,8 @@
 package part4.drivers;
 
-public class DDriver extends Driver {
+import part4.transports.Bus;
+
+public class DDriver extends Driver<Bus> {
     public DDriver(String fullname, boolean driveLicense, double driveExperience) {
         super(fullname, driveLicense, driveExperience);
     }
