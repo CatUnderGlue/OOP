@@ -5,13 +5,13 @@ import part4.drivers.Driver;
 
 import java.util.Objects;
 
-public abstract class Transport<T extends Driver> implements Competing {
-    private T driver;
+public abstract class Transport<D extends Driver> implements Competing {
+    private D driver;
     private String brand;
     private String model;
     private double engineVolume;
 
-    public Transport(String brand, String model, double engineVolume, T driver) {
+    public Transport(String brand, String model, double engineVolume, D driver) {
         setBrand(brand);
         setModel(model);
         setEngineVolume(engineVolume);
@@ -58,15 +58,15 @@ public abstract class Transport<T extends Driver> implements Competing {
         }
     }
 
-    public T getDriver() {
+    public D getDriver() {
         return driver;
     }
 
-    public void setDriver(T driver) {
-        if (!driver.isBusy()) {
-            driver.setBusy(true);
+    public void setDriver(D driver) {
+        if (driver.getCar() == null) {
+            driver.setCar(this);
             if (this.driver != null) {
-                this.driver.setBusy(false);
+                this.driver.setCar(null);
             }
             this.driver = driver;
         } else {
@@ -78,7 +78,7 @@ public abstract class Transport<T extends Driver> implements Competing {
     public String toString() {
         return "Brand: " + getBrand() + "\n" +
                 "Model: " + getModel() + "\n" +
-                "Engine Volume: " + getEngineVolume() + "\n";
+                "Engine Volume: " + getEngineVolume();
     }
 
     @Override
