@@ -21,7 +21,7 @@ public class Bus extends Transport<DDriver> {
         @Override
         public String toString() {
             return String.format("Вместимость: %s %s", (minCapacity != null ? "от " + minCapacity + " человек" : ""),
-                    minCapacity != null ? "до " + maxCapacity + " человек" : "");
+                    maxCapacity != null ? "до " + maxCapacity + " человек" : "");
         }
     }
 

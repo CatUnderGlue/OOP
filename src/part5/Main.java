@@ -30,6 +30,12 @@ public class Main {
 //        System.out.println(bus1.getDriver());
 //        System.out.println(dDriver1.getCar());
 
+        car1.setBodyType(Car.BTypes.MINIVAN);
+        car1.printType();
+        truck1.setCarrying(Truck.Carrying.N1);
+        truck1.printType();
+        bus1.setCapacity(Bus.Capacity.SMALL);
+        bus1.printType();
     }
 
     public static void printAllTransportInfo(Transport<?>... transports) {

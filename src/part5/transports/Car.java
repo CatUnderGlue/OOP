@@ -3,7 +3,7 @@ package part5.transports;
 import part5.drivers.BDriver;
 
 public class Car extends Transport<BDriver> {
-    public enum bodyTypes {
+    public enum BTypes {
         SEDAN("Седан"),
         HATCHBACK("Хетчбек  "),
         COUPE("Купе"),
@@ -16,7 +16,7 @@ public class Car extends Transport<BDriver> {
 
         final String translate;
 
-        bodyTypes(String translate) {
+        BTypes(String translate) {
             this.translate = translate;
         }
 
@@ -27,7 +27,7 @@ public class Car extends Transport<BDriver> {
 
     }
 
-    private bodyTypes bodyType;
+    private BTypes bodyType;
 
     public Car(String brand, String model, double engineVolume, BDriver driver) {
         super(brand, model, engineVolume, driver);
@@ -42,11 +42,11 @@ public class Car extends Transport<BDriver> {
         }
     }
 
-    public bodyTypes getBodyType() {
+    public BTypes getBodyType() {
         return bodyType;
     }
 
-    public void setBodyType(bodyTypes bodyType) {
+    public void setBodyType(BTypes bodyType) {
         this.bodyType = bodyType;
     }
 
