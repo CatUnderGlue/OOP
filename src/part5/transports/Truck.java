@@ -23,10 +23,10 @@ public class Truck extends Transport<CDriver> {
         }
     }
     private Carrying carrying;
-    private String type = "Грузовой автомобиль";
 
     public Truck(String brand, String model, double engineVolume, CDriver driver) {
         super(brand, model, engineVolume, driver);
+        setType(TransportTypes.TRUCK);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class Truck extends Transport<CDriver> {
         if (carrying == null){
             System.out.println("Данных по т/с недостаточно");
         } else {
-            System.out.println(type + " " + carrying);
+            System.out.println(getType() + " " + carrying);
         }
     }
 
@@ -69,9 +69,5 @@ public class Truck extends Transport<CDriver> {
 
     public void setCarrying(Carrying carrying) {
         this.carrying = carrying;
-    }
-
-    public String getType() {
-        return type;
     }
 }

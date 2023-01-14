@@ -36,6 +36,8 @@ public class Main {
         truck1.printType();
         bus1.setCapacity(Bus.Capacity.SMALL);
         bus1.printType();
+
+        System.out.println(car1.getType());
     }
 
     public static void printAllTransportInfo(Transport<?>... transports) {
