@@ -10,8 +10,8 @@ public class Bus extends Transport<DDriver> {
         LARGE(60, 80),
         EXTRA_LARGE(100, 120);
 
-        final Integer minCapacity;
-        final Integer maxCapacity;
+        private final Integer minCapacity;
+        private final Integer maxCapacity;
 
         Capacity(Integer minCapacity, Integer maxCapacity) {
             this.minCapacity = minCapacity;
@@ -28,7 +28,6 @@ public class Bus extends Transport<DDriver> {
 
     public Bus(String brand, String model, double engineVolume, DDriver driver) {
         super(brand, model, engineVolume, driver);
-        setType(TransportTypes.BUS);
     }
 
     @Override
@@ -36,7 +35,7 @@ public class Bus extends Transport<DDriver> {
         if (capacity == null) {
             System.out.println("Данных по т/с недостаточно");
         } else {
-            System.out.println(getType() + " " + capacity);
+            System.out.println("Автобус: " + capacity);
         }
     }
 

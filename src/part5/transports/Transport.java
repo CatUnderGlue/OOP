@@ -6,7 +6,6 @@ import part5.drivers.Driver;
 import java.util.Objects;
 
 public abstract class Transport<D extends Driver> implements Competing {
-    private TransportTypes type;
     private D driver;
     private String brand;
     private String model;
@@ -75,14 +74,6 @@ public abstract class Transport<D extends Driver> implements Competing {
         } else {
             throw new IllegalArgumentException("Данный водитель уже управляет другим авто");
         }
-    }
-
-    public TransportTypes getType() {
-        return type;
-    }
-
-    public void setType(TransportTypes type) {
-        this.type = type;
     }
 
     @Override

@@ -5,7 +5,7 @@ import part5.drivers.BDriver;
 public class Car extends Transport<BDriver> {
     public enum BTypes {
         SEDAN("Седан"),
-        HATCHBACK("Хетчбек  "),
+        HATCHBACK("Хетчбек"),
         COUPE("Купе"),
         CUV("Универсал"),
         SUV("Внедорожник"),
@@ -14,7 +14,7 @@ public class Car extends Transport<BDriver> {
         VAN("Фургон"),
         MINIVAN("Минивэн");
 
-        final String translate;
+        private final String translate;
 
         BTypes(String translate) {
             this.translate = translate;
@@ -30,7 +30,6 @@ public class Car extends Transport<BDriver> {
 
     public Car(String brand, String model, double engineVolume, BDriver driver) {
         super(brand, model, engineVolume, driver);
-        setType(TransportTypes.CAR);
     }
 
     @Override
@@ -38,7 +37,7 @@ public class Car extends Transport<BDriver> {
         if (bodyType == null) {
             System.out.println("Данных по т/с недостаточно");
         } else {
-            System.out.println(getType() + " " + bodyType);
+            System.out.println("Легковой автомобиль: " + bodyType);
         }
     }
 

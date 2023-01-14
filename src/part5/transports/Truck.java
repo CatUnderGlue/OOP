@@ -8,8 +8,8 @@ public class Truck extends Transport<CDriver> {
         N2(3.5, 12.0),
         N3(12.0, null);
 
-        final Double minValue;
-        final Double maxValue;
+        private final Double minValue;
+        private final Double maxValue;
 
         Carrying(Double minValue, Double maxValue) {
             this.minValue = minValue;
@@ -26,7 +26,6 @@ public class Truck extends Transport<CDriver> {
 
     public Truck(String brand, String model, double engineVolume, CDriver driver) {
         super(brand, model, engineVolume, driver);
-        setType(TransportTypes.TRUCK);
     }
 
     @Override
@@ -34,7 +33,7 @@ public class Truck extends Transport<CDriver> {
         if (carrying == null){
             System.out.println("Данных по т/с недостаточно");
         } else {
-            System.out.println(getType() + " " + carrying);
+            System.out.println("Грузовой автомобиль: " + carrying);
         }
     }
 
