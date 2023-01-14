@@ -28,6 +28,7 @@ public class Car extends Transport<BDriver> {
     }
 
     private BTypes bodyType;
+    private String type = "Легковой автомобиль";
 
     public Car(String brand, String model, double engineVolume, BDriver driver) {
         super(brand, model, engineVolume, driver);
@@ -38,16 +39,8 @@ public class Car extends Transport<BDriver> {
         if (bodyType == null) {
             System.out.println("Данных по т/с недостаточно");
         } else {
-            System.out.println(bodyType);
+            System.out.println(type + " " + bodyType);
         }
-    }
-
-    public BTypes getBodyType() {
-        return bodyType;
-    }
-
-    public void setBodyType(BTypes bodyType) {
-        this.bodyType = bodyType;
     }
 
     @Override
@@ -73,5 +66,17 @@ public class Car extends Transport<BDriver> {
     @Override
     public double maxSpeed() {
         return getEngineVolume() * 10; // Допустим объём двигателя будет показателем скорости :D
+    }
+
+    public BTypes getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BTypes bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    public String getType() {
+        return type;
     }
 }

@@ -6,6 +6,7 @@ import part5.drivers.Driver;
 import java.util.Objects;
 
 public abstract class Transport<D extends Driver> implements Competing {
+    private String type;
     private D driver;
     private String brand;
     private String model;

@@ -26,6 +26,7 @@ public class Bus extends Transport<DDriver> {
     }
 
     private Capacity capacity;
+    private String type = "Автобус";
 
     public Bus(String brand, String model, double engineVolume, DDriver driver) {
         super(brand, model, engineVolume, driver);
@@ -36,16 +37,8 @@ public class Bus extends Transport<DDriver> {
         if (capacity == null) {
             System.out.println("Данных по т/с недостаточно");
         } else {
-            System.out.println(capacity);
+            System.out.println(type + " " + capacity);
         }
-    }
-
-    public Capacity getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(Capacity capacity) {
-        this.capacity = capacity;
     }
 
     @Override
@@ -71,5 +64,17 @@ public class Bus extends Transport<DDriver> {
     @Override
     public double maxSpeed() {
         return getEngineVolume() * 10; // Допустим объём двигателя будет показателем скорости :D
+    }
+
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Capacity capacity) {
+        this.capacity = capacity;
+    }
+
+    public String getType() {
+        return type;
     }
 }
