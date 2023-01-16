@@ -26,8 +26,9 @@ public class Bus extends Transport<DDriver> {
     }
     private Capacity capacity;
 
-    public Bus(String brand, String model, double engineVolume, DDriver driver) {
+    public Bus(String brand, String model, double engineVolume, DDriver driver, Capacity capacity) {
         super(brand, model, engineVolume, driver);
+        this.capacity = capacity;
     }
 
     @Override

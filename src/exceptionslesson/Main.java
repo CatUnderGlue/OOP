@@ -14,9 +14,9 @@ public class Main {
         CDriver cDriver1 = new CDriver("FIO05", true, 1.0);
         DDriver dDriver1 = new DDriver("FIO09", true, 1.0);
 
-        Car car1 = new Car("Brand1", "Model1", 10.5, bDriver1);
-        Truck truck1 = new Truck("Brand1", "Model1", 7.0, cDriver1);
-        Bus bus1 = new Bus("Brand1", "Model1", 4.0, dDriver1);
+        Car car1 = new Car("Brand1", "Model1", 10.5, bDriver1, Car.BTypes.COUPE);
+        Truck truck1 = new Truck("Brand1", "Model1", 7.0, cDriver1, Truck.Carrying.N2);
+        Bus bus1 = new Bus("Brand1", "Model1", 4.0, dDriver1, Bus.Capacity.MEDIUM);
 
 //        car1.pitStop();
 //

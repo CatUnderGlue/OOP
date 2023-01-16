@@ -26,8 +26,9 @@ public class Truck extends Transport<CDriver> {
     }
     private Carrying carrying;
 
-    public Truck(String brand, String model, double engineVolume, CDriver driver) {
+    public Truck(String brand, String model, double engineVolume, CDriver driver, Carrying carrying) {
         super(brand, model, engineVolume, driver);
+        this.carrying = carrying;
     }
 
     @Override
