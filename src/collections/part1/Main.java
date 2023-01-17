@@ -23,11 +23,13 @@ public class Main {
         System.out.println();
 
         car1.printInfo();
+        System.out.println();
 
+        car1.getDriver().setHasDriveLicense(false);
         try {
             car1.passDiagnostic();
         } catch (CantFindLicense e) {
-            System.out.println("А прав-то, нема :D");
+            System.out.println(e.getMessage());
         }
     }
 }
