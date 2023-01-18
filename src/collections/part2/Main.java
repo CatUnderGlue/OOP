@@ -1,14 +1,10 @@
 package collections.part2;
 
 import collections.part2.drivers.BDriver;
-import collections.part2.drivers.CDriver;
-import collections.part2.drivers.DDriver;
 import collections.part2.drivers.Driver;
 import collections.part2.exceptions.CantFindLicense;
-import collections.part2.transports.Bus;
 import collections.part2.transports.Car;
 import collections.part2.transports.Transport;
-import collections.part2.transports.Truck;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +16,16 @@ public class Main {
     public static  List<Mechanic<?>> mechanics = new ArrayList<>();
     public static void main(String[] args){
         // Создаём машину, водителя, механика и всех в списки
-        Car car = initialiseCar();
+        Car car = new Car("Car Brand");
         transports.add(car);
 
         BDriver bDriver = car.getDriver();
         drivers.add(bDriver);
 
-        Mechanic<Car> carMechanic = initialiseCarMechanic();
+        Mechanic<Car> carMechanic = new Mechanic<>("Ilame Evgenich", "POE Enjoyers");
+        Mechanic<Car> carMechanic2 = new Mechanic<>("Recrent Yurich", "COD Enjoyers");
         mechanics.add(carMechanic);
+        mechanics.add(carMechanic2);
 
         // Техобслуживание и починка
         carMechanic.carryOutMaintenance(car);
@@ -39,6 +37,7 @@ public class Main {
 
         // Задача из задания (Вывести водителя и механиков автомобиля)
         car.addMechanic(carMechanic);
+        car.addMechanic(carMechanic2);
         car.addMechanic(mechanic);
         System.out.println();
         car.printInfo();
@@ -52,27 +51,6 @@ public class Main {
         } catch (CantFindLicense e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    public static Car initialiseCar(){
-        return new Car("Brand", "Model", Math.random() * 100, new BDriver("FIO", true, 1.0), Car.BTypes.SEDAN);
-    }
-    public static Truck initialiseTruck(){
-        return new Truck("Brand", "Model", Math.random() * 100, new CDriver("FIO", true, 1.0), Truck.Carrying.N1);
-    }
-
-    public static Bus initialiseBus(){
-        return new Bus("Brand", "Model", Math.random() * 100, new DDriver("FIO", true, 1.0), Bus.Capacity.MEDIUM);
-    }
-
-    public static Mechanic<Car> initialiseCarMechanic(){
-        return new Mechanic<>("FIO","Pepega Comp");
-    }
-    public static Mechanic<Truck> initialiseTruckMechanic(){
-        return new Mechanic<>("FIO","BloodTrail Comp");
-    }
-    public static Mechanic<Bus> initialiseBusMechanic(){
-        return new Mechanic<>("FIO","GG ne budet Comp");
     }
 
     public static void printAllTransportInfo(Transport<?>... transports) {
