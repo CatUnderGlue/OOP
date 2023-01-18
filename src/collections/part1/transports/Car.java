@@ -2,9 +2,8 @@ package collections.part1.transports;
 
 import collections.part1.drivers.BDriver;
 import collections.part1.exceptions.CantFindLicense;
-import collections.part1.mechanics.CarMechanic;
 
-public class Car extends Transport<BDriver, CarMechanic> {
+public class Car extends Transport<BDriver> {
     public enum BTypes {
         SEDAN("Седан"),
         HATCHBACK("Хетчбек"),

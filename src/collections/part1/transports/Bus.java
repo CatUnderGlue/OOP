@@ -1,9 +1,8 @@
 package collections.part1.transports;
 
 import collections.part1.drivers.DDriver;
-import collections.part1.mechanics.BusMechanic;
 
-public class Bus extends Transport<DDriver, BusMechanic> {
+public class Bus extends Transport<DDriver> {
     public enum Capacity {
         EXTRA_SMALL(null, 10),
         SMALL(null, 25),

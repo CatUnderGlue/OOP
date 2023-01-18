@@ -3,16 +3,16 @@ package collections.part1.transports;
 import collections.part1.Competing;
 import collections.part1.drivers.Driver;
 import collections.part1.exceptions.CantFindLicense;
-import collections.part1.mechanics.Mechanic;
+import collections.part1.Mechanic;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Transport<D extends Driver, M extends Mechanic> implements Competing {
+public abstract class Transport<D extends Driver> implements Competing {
     private static final int MAX_MECHANICS = 5;
     private D driver;
-    private List<M> mechanics = new ArrayList<>();
+    private List<Mechanic<?>> mechanics = new ArrayList<>();
     private String brand;
     private String model;
     private double engineVolume;
@@ -36,19 +36,18 @@ public abstract class Transport<D extends Driver, M extends Mechanic> implements
         System.out.printf("Водитель: %s\nМеханики: %s\n", driver, getMechanics());
     }
 
-    public void addMechanic(M mechanic){
+    public void addMechanic(Mechanic<?> mechanic){
         if (mechanics.contains(mechanic)){
             throw new IllegalArgumentException("Данный механик уже обслуживает эту машину!");
         }
         if (mechanics.size() < MAX_MECHANICS){
             mechanics.add(mechanic);
-            mechanic.addTransport(this);
         } else {
             throw new RuntimeException("Эту машину обслуживает максимальное кол-во механиков!");
         }
     }
 
-    public void removeMechanic(M mechanic){
+    public void removeMechanic(Mechanic<?> mechanic){
         if (mechanics.contains(mechanic)){
             mechanics.remove(mechanic);
         } else {
@@ -56,7 +55,7 @@ public abstract class Transport<D extends Driver, M extends Mechanic> implements
         }
     }
 
-    public List<M> getMechanics() {
+    public List<Mechanic<?>> getMechanics() {
         return mechanics;
     }
 
@@ -121,7 +120,7 @@ public abstract class Transport<D extends Driver, M extends Mechanic> implements
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Transport<?,?> transport = (Transport<?,?>) o;
+        Transport<?> transport = (Transport<?>) o;
         return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(driver, transport.driver) && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model);
     }
 

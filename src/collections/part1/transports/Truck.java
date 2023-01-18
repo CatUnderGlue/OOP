@@ -2,9 +2,8 @@ package collections.part1.transports;
 
 import collections.part1.drivers.CDriver;
 import collections.part1.exceptions.CantFindLicense;
-import collections.part1.mechanics.TruckMechanic;
 
-public class Truck extends Transport<CDriver, TruckMechanic> {
+public class Truck extends Transport<CDriver> {
     public enum Carrying {
         N1(null, 3.5),
         N2(3.5, 12.0),
