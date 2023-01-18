@@ -1,5 +1,6 @@
 package collections.part2.transports;
 
+import collections.part2.drivers.BDriver;
 import collections.part2.drivers.DDriver;
 
 public class Bus extends Transport<DDriver> {
@@ -29,6 +30,10 @@ public class Bus extends Transport<DDriver> {
     public Bus(String brand, String model, double engineVolume, DDriver driver, Capacity capacity) {
         super(brand, model, engineVolume, driver);
         this.capacity = capacity;
+    }
+
+    public Bus(String brand){
+        this(brand, null, 1.0, new DDriver(null, true, 0), Capacity.MEDIUM);
     }
 
     @Override

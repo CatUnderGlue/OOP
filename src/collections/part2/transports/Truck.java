@@ -1,5 +1,6 @@
 package collections.part2.transports;
 
+import collections.part2.drivers.BDriver;
 import collections.part2.drivers.CDriver;
 import collections.part2.exceptions.CantFindLicense;
 
@@ -28,6 +29,9 @@ public class Truck extends Transport<CDriver> {
     public Truck(String brand, String model, double engineVolume, CDriver driver, Carrying carrying) {
         super(brand, model, engineVolume, driver);
         this.carrying = carrying;
+    }
+    public Truck(String brand){
+        this(brand, null, 1.0, new CDriver(null, true, 0), Carrying.N1);
     }
 
     @Override

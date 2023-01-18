@@ -29,6 +29,10 @@ public class Car extends Transport<BDriver> {
     }
     private BTypes bodyType;
 
+    public Car(String brand){
+        this(brand, null, 1.0, new BDriver(null, true, 0), BTypes.SEDAN);
+    }
+
     public Car(String brand, String model, double engineVolume, BDriver driver, BTypes bodyType) {
         super(brand, model, engineVolume, driver);
         this.bodyType = bodyType;
