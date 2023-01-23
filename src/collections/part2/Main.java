@@ -5,15 +5,13 @@ import collections.part2.drivers.Driver;
 import collections.part2.transports.Car;
 import collections.part2.transports.Transport;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
-    public static HashSet<Driver<?>> drivers = new HashSet<>();
-    public static  HashSet<Transport<?>> transports = new HashSet<>();
-    public static HashMap<Transport<?>, HashSet<Mechanic<?>>> mechanics = new HashMap<>();
+    public static Set<Driver<?>> drivers = new HashSet<>();
+    public static  Set<Transport<?>> transports = new HashSet<>();
+    public static Map<Transport<?>, Set<Mechanic<?>>> mechanics = new HashMap<>();
 
     public static void main(String[] args){
         // Создаём машину, водителя, механика и всех в списки
