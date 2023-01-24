@@ -18,9 +18,10 @@ public class Main {
     public static void main(String[] args){
         // Создаём машину, водителя, механика и всех в списки
         Car car = new Car("Car Brand");
+        Car car2 = new Car("Car Brand");
         Truck truck = new Truck("Truck Brand");
         transports.add(car);
-        transports.add(car); // "Случайно" добавляем второй раз
+        transports.add(car2); // "Случайно" добавляем второй раз
         transports.add(truck);
 
         BDriver bDriver = car.getDriver();
@@ -30,9 +31,10 @@ public class Main {
 
         Mechanic<Car> carMechanic = new Mechanic<>("Ilame Evgenich", "POE Enjoyers");
         Mechanic<Car> carMechanic2 = new Mechanic<>("Recrent Yurich", "COD Enjoyers");
+        Mechanic<Car> carMechanic3 = new Mechanic<>("Recrent Yurich", "COD Enjoyers");
         Mechanic<Truck> truckMechanic = new Mechanic<>("Golovach Daubi", "Dota Enjoyers");
 
-        putMechanics(car, carMechanic, carMechanic2, carMechanic2);
+        putMechanics(car, carMechanic, carMechanic2, carMechanic3);
         putMechanics(truck, truckMechanic);
 
         System.out.println(transports); // Выводит без повторов
@@ -71,7 +73,7 @@ public class Main {
     }
 
     public static void putMechanics(Transport<?> transport, Mechanic<?>... mechanics){
-        HashSet<Mechanic<?>> mech = new HashSet<>(List.of(mechanics));
+        Set<Mechanic<?>> mech = new HashSet<>(List.of(mechanics));
         Main.mechanics.put(transport, mech);
     }
 
